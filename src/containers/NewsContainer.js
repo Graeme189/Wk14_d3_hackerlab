@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import StoryList from '../components/StoryList.js'
 import Header from '../components/Header.js'
+// import '../components/Header.css';
 
 class NewsContainer extends Component {
   constructor(props) {
@@ -15,7 +16,7 @@ class NewsContainer extends Component {
     fetch(url)
       .then(res => res.json())
       .then(storyIDs => {
-        return storyIDs.slice(1, 20).map(storyID => {
+        return storyIDs.slice(0, 19).map(storyID => {
           return fetch("https://hacker-news.firebaseio.com/v0/item/" + storyID + ".json")
             .then(res => res.json())
         })
@@ -29,7 +30,7 @@ class NewsContainer extends Component {
   render() {
     return (
       <>
-        <h1>NewsContainer</h1>
+        <Header />
         <StoryList stories={this.state.stories}/>
       </>
     )

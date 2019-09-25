@@ -1,10 +1,12 @@
-import React, {Component} from 'react';
+import React from 'react';
 import StoryDetail from './StoryDetail.js';
 
 const StoryList = (props) => {
   const stories = props.stories.map((story, index) => {
     return(
-        <StoryDetail key={index} story={story}/>
+      <div key={index}>
+        <StoryDetail story={story}/>
+      </div>
     )
   })
   return(
