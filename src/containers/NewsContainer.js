@@ -20,7 +20,9 @@ class NewsContainer extends Component {
             .then(res => res.json())
         })
       })
-      .then(promises => console.log(promises))
+      .then(promises => Promise.all(promises)
+        .then(stories => this.setState({stories: stories}))
+      )
       .catch(err => console.error);
   }
 
