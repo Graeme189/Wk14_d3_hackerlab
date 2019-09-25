@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import StoryDetail from '../components/StoryDetail.js'
+import StoryList from '../components/StoryList.js'
 import Header from '../components/Header.js'
 
 class NewsContainer extends Component {
@@ -30,6 +30,7 @@ class NewsContainer extends Component {
     return (
       <>
         <h1>NewsContainer</h1>
+        <StoryList stories={this.state.stories}/>
       </>
     )
   }
