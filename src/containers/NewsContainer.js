@@ -13,10 +13,15 @@ class NewsContainer extends Component {
   componentDidMount() {
     const url = "https://hacker-news.firebaseio.com/v0/topstories.json";
     fetch(url)
-    // to access the API we have to install an allow-control-allow-origin plugin
-    .then(res => res.json())
-    .then(stories => this.setState({stories: stories}))
-    .catch(err => console.error);
+      .then(res => res.json())
+      .then(storyIDs => {
+        return storyIDs.map(storyID => {
+          return fetch("https://hacker-news.firebaseio.com/v0/item/" + storyID + ".json")
+            .then(res => res.json())
+        })
+      })
+      .then(promises => console.log(promises))
+      .catch(err => console.error);
   }
 
   render() {
