@@ -1,8 +1,8 @@
 import React from 'react';
 
-const StoryDetail = (props) => {
+const StoryDetail = ({story}) => {
     return (
-    <h3>{props.title}</h3>
+    <h3><a href={story.url}>{story.title}</a></h3>
     )
 }
 

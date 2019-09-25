@@ -15,7 +15,7 @@ class NewsContainer extends Component {
     fetch(url)
       .then(res => res.json())
       .then(storyIDs => {
-        return storyIDs.map(storyID => {
+        return storyIDs.slice(1, 20).map(storyID => {
           return fetch("https://hacker-news.firebaseio.com/v0/item/" + storyID + ".json")
             .then(res => res.json())
         })

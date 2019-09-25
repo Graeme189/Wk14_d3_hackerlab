@@ -4,7 +4,7 @@ import StoryDetail from './StoryDetail.js';
 const StoryList = (props) => {
   const stories = props.stories.map((story, index) => {
     return(
-        <StoryDetail key={index} title={story.title}/>
+        <StoryDetail key={index} story={story}/>
     )
   })
   return(
